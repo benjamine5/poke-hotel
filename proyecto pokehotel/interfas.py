@@ -13,14 +13,36 @@ photo_image = ImageTk.PhotoImage(image)
 image_label = tk.Label(raiz, image=photo_image)
 image_label.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
 
-# boton
-def on_button_click():
-    print("clickeado")
+# agregamos 2 botones
+def on_button_click1():
+    #crea la nueva ventana
+    new_window = tk.Tk()
 
-button = tk.Button(raiz, text="clickeame", command=on_button_click)
-button.place(relx=0.5, rely=0.6, anchor=tk.CENTER)
+    # cambio del tamaño
+    new_window.geometry('600x500')
 
-# si se reagusta el tamaño
+    # hace las matrices
+    for i in range(3):
+        matrix = tk.Frame(new_window)
+        matrix.pack()
+
+        for j in range(6):
+            label = tk.Label(matrix, text=f"Matrix {i+1}, Cell {j+1}")
+            label.pack(side=tk.LEFT)
+
+    # el loop de la nueva ventana
+    new_window.mainloop()
+
+def on_button_click2():
+    print("si lo clickearon ")
+
+button1 = tk.Button(raiz, text="reverva", command=on_button_click1)
+button1.place(relx=0.6, rely=0.5, anchor=tk.CENTER)
+
+button2 = tk.Button(raiz, text="Clickeame", command=on_button_click2)
+button2.place(relx=0.4, rely=0.5, anchor=tk.CENTER)
+
+# si se reajusta el tamaño
 raiz.resizable(True, True)
 
 #main loop
