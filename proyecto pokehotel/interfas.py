@@ -5,6 +5,7 @@ from PIL import Image, ImageTk
 # creamos la pestaña
 raiz = tk.Tk()
 raiz.geometry('400x400')  # Set the initial size of the window
+raiz.iconbitmap("pokemon.ico")
 
 # imagen del ditto
 image = Image.open("ditto.png")
