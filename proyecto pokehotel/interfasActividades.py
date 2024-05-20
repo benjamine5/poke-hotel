@@ -1,23 +1,18 @@
 from tkinter import *
 
-#Funcion recopiladora de datos de los checkbuttons (odie esta parte -n-)
+#Funcion recopiladora de datos de los checkbuttons :(
 def compra():
+    totalActividades=0
     if(paseo.get()==1):
-        print("Paseo seleccionado")
-    else:
-        print("Paseo sin Seleccionar")
+        totalActividades+=2000
     if(nadar.get()==1):
-        print("Nadar Seleccionado")
-    else:
-        print("Nadar sin Seleccionar")
+        totalActividades+=2000
     if(fogata.get()==1):
-        print("Fogata Seleccionado")
-    else:
-        print("Fogata sin Seleccionar")
+        totalActividades+=2000
     if(juegos.get()==1):
-        print("Juegos Seleccionado")
-    else:
-        print("Juegos sin Seleccionar")
+        totalActividades+=2000
+    
+    print(totalActividades)
     
 
 #creamos la ventana :D
@@ -39,10 +34,10 @@ juegos=IntVar()
 paseo=IntVar()
 
 #Lista de actividades D:
-Opcion1=Checkbutton(raiz, text="Paseo", font=("Times New Romans", 25), variable=paseo, onvalue=1, offvalue=0, command=compra).place(x=150, y=125)
-Opcion2=Checkbutton(raiz, text="Nadar", font=("Times New Romans", 25), variable=nadar, onvalue=1, offvalue=0, command=compra).place(x=150, y=200)
-Opcion3=Checkbutton(raiz, text="Fogata", font=("Times New Romans", 25), variable=fogata, onvalue=1, offvalue=0, command=compra).place(x=150, y=275)
-Opcion4=Checkbutton(raiz, text="Juegos", font=("Times New Romans", 25), variable=juegos, onvalue=1, offvalue=0, command=compra).place(x=150, y=350)
+Opcion1=Checkbutton(raiz, text="Paseo ($2000)", font=("Times New Romans", 25), variable=paseo, onvalue=1, offvalue=0, command=compra).place(x=150, y=125)
+Opcion2=Checkbutton(raiz, text="Nadar ($2000)", font=("Times New Romans", 25), variable=nadar, onvalue=1, offvalue=0, command=compra).place(x=150, y=200)
+Opcion3=Checkbutton(raiz, text="Fogata ($2000)", font=("Times New Romans", 25), variable=fogata, onvalue=1, offvalue=0, command=compra).place(x=150, y=275)
+Opcion4=Checkbutton(raiz, text="Juegos ($2000)", font=("Times New Romans", 25), variable=juegos, onvalue=1, offvalue=0, command=compra).place(x=150, y=350)
 
 #boton siguiente :>
 def codigoBoton():
