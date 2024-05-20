@@ -1,11 +1,12 @@
 from tkinter import *
+import subprocess  #libreria para abrir interfaz de actividades
 
 ventana = Tk()
 ventana.geometry("800x600")
 ventana.config(bg="black")
 ventana.title("Registro")
 
-ventana.iconbitmap("hotel.ico")
+ventana.iconbitmap("pokemon.ico")
 Frame1=Frame()
 Frame1.pack(fill="both",expand="True")
 
@@ -63,7 +64,6 @@ NombrePokemonLabel = Label(Frame1, text="Nombre del Pokémon:")
 NombrePokemonLabel.grid(row=5, column=0, padx=10, pady=10)
 
 # Crear campo de entrada para el tipo del Pokémon
-
 TipoPokemonLabel = Label(Frame1, text="Tipo del Pokémon:")
 TipoPokemonLabel.grid(row=6, column=0, padx=10, pady=10)
 
@@ -86,14 +86,10 @@ TiempoEstadiaLabel = Label(Frame1, text="Dias de Estadía del Pokémon:")
 TiempoEstadiaLabel.grid(row=9, column=0, padx=10, pady=10)
 
 
-#bbbbbbbbbbbbbbbbb
 
-
-
-def guardar_datos():
-    
-    
-    
+#Funcion para que el boton "registrarse" ejecute la interfaz de actividades
+#mezcle ambas funciones ya que el boton no permite dos command
+def abrirPrograma():
     Nombre_entrenador=CuadroNombre.get()
     Apellido=CuadroApellido.get()
     Rut = CuadroRut.get()
@@ -106,16 +102,13 @@ def guardar_datos():
     print("Nombre del Pokémon:", nombre_pokemon)
     print("Edad del Pokémon:", edad_pokemon)
     print("Dias de Estadía del Pokémon:", tiempo_estadia)
+    
+    
+    subprocess.Popen(["python", "interfasActividades.py"]) #abrir la siguiente interfaz
 
 # Crear botón de guardar
-botomRegister = Button(ventana, text="Registrarse",command=guardar_datos ,fg="Black", font=("Times New Roman", 20))
+botomRegister = Button(ventana, text="Registrarse",command=abrirPrograma ,fg="Black", font=("Times New Roman", 20))
 botomRegister.place(x=300, y=400)
-
-
-
-
-
-
 
 
 ventana.mainloop()
