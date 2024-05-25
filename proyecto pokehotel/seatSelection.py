@@ -5,16 +5,19 @@ from tkinter import messagebox
 class SeatSelection(tk.Tk):
     def __init__(self):
         super().__init__()
-
-        self.title("habitaciones")
-        self.geometry("600x500")
+        self.title("Habitaciones")
+        self.geometry("800x600")
+        self.resizable(True, True)
+        self.config(bd=25, relief="groove")
 
         self.selected_seats = []
 
         self.create_widgets()
 
     def create_widgets(self):
-        label = tk.Label(self, text="habitaciones tomadas:")
+        Frame=tk.Frame(self)
+        Frame.pack()
+        label = tk.Label(Frame, text="Habitaciones Tomadas:", font=("Times New Romans", 20))
         label.grid(row=0, column=0, columnspan=5)
 
         self.seat_buttons = []
@@ -27,17 +30,20 @@ class SeatSelection(tk.Tk):
         row = 1
         col = 0
         for i, seat in enumerate(seats):
-            button = tk.Button(self, text=seat, width=16, height=5, command=lambda i=i: self.on_seat_click(i))
+            button = tk.Button(Frame, text=seat, width=16, height=5, command=lambda i=i: self.on_seat_click(i))
             button.grid(row=row, column=col)
             self.seat_buttons.append(button)
             col += 1
             if col > 4:
                 col = 0
                 row += 1
-
+        
         # Add the button to the same window
-        self.button = tk.Button(self, text="siguiente", command=self.on_button_click)
+        self.button = tk.Button(Frame, text="Siguiente", command=self.Registro, font=("Times New Romans", 21))
         self.button.grid(row=row+1, column=0, columnspan=5)
+        
+    def Registro(self):
+        subprocess.Popen(["python","registro.py"])
 
     def on_seat_click(self, index):
         seat = self.seat_buttons[index]
