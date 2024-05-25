@@ -5,27 +5,29 @@ from PIL import Image, ImageTk
 
 # creamos la pestaña
 raiz = tk.Tk()
-raiz.geometry('400x400')
+raiz.title("Hotel Pokemon")
+raiz.iconbitmap("pokemon.ico")
+raiz.geometry('800x600')
 
 # imagen de fondo
 image = Image.open("image.png")
-image = image.resize((400, 400))
+image = image.resize((800, 600))
 photo_image = ImageTk.PhotoImage(image)
 image_label = tk.Label(raiz, image=photo_image)
-image_label.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
+image_label.pack()
 
 # agregamos 2 botones
-def on_button_click1():
+def Reserva():
     subprocess.Popen(["python","seatSelection.py"])
 
-def on_button_click2():
+def Estado():
     print("si lo clickearon ")
 
-button1 = tk.Button(raiz, text="reverva", command=on_button_click1)
-button1.place(relx=0.6, rely=0.5, anchor=tk.CENTER)
+button1 = tk.Button(raiz, text="Reservar Habitacion", command=Reserva, font=("Times New Romans", 21))
+button1.place(relx=0.5, rely=0.45, anchor=tk.CENTER)
 
-button2 = tk.Button(raiz, text="Clickeame", command=on_button_click2)
-button2.place(relx=0.4, rely=0.5, anchor=tk.CENTER)
+button2 = tk.Button(raiz, text="Estado del Pokemon", command=Estado, font=("Times New Romans", 20))
+button2.place(relx=0.5, rely=0.55, anchor=tk.CENTER)
 
 # si se reajusta el tamaño
 raiz.resizable(True, True)
