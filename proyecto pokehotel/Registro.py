@@ -1,5 +1,5 @@
 from tkinter import *
-import subprocess  #libreria para abrir interfaz de actividades
+import subprocess
 
 ventana = Tk()
 ventana.geometry("800x600")
@@ -10,10 +10,7 @@ ventana.iconbitmap("pokemon.ico")
 Frame1=Frame()
 Frame1.pack(fill="both",expand="True")
 
-Frame1.config()
-Frame1.config(width="1010",height="600")
-Frame1.config(bd=25)
-Frame1.config(relief="sunken")
+Frame1.config(width="1010",height="600", bd=25, relief="groove")
 Imagen1=PhotoImage(file="Pokemon.png")
 label2 = Label(Frame1,image=Imagen1 )
 label2.place(x=350, y=100)
@@ -104,7 +101,8 @@ def abrirPrograma():
     print("Dias de Estadía del Pokémon:", tiempo_estadia)
     
     
-    subprocess.Popen(["python", "interfasActividades.py"]) #abrir la siguiente interfaz
+    subprocess.Popen(["python", "interfasActividades.py"]) 
+
 
 # Crear botón de guardar
 botomRegister = Button(ventana, text="Registrarse",command=abrirPrograma ,fg="Black", font=("Times New Roman", 20))
