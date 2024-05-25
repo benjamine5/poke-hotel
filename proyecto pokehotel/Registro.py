@@ -27,28 +27,28 @@ drop1.place(x=250,y=190)
 CuadroNombre=Entry(Frame1)
 CuadroNombre.grid(row=1, column=1,padx=10,pady=10)
 CuadroNombre.config(fg="red",justify="center" )
-ContLabel=Label(Frame1,text="Nombre Entrenador:")
+ContLabel=Label(Frame1,text="Nombre Entrenador:", font=("Times New Romans", 10))
 ContLabel.grid(row=1, column=0,padx=10,pady=10)
 
 # Crear campo de entrada para el apellido
 CuadroApellido = Entry(Frame1)
 CuadroApellido.grid(row=1, column=3, padx=10, pady=10)
 CuadroApellido.config(fg="red", justify="center")
-ApellidoLabel = Label(Frame1, text="Apellido Entrenador:")
+ApellidoLabel = Label(Frame1, text="Apellido Entrenador:", font=("Times New Romans", 10))
 ApellidoLabel.grid(row=1, column=2, padx=10, pady=10)
 
 # Crear campo de entrada para el Rut
 CuadroRut = Entry(Frame1)
 CuadroRut.grid(row=3, column=1, padx=10, pady=10)
 CuadroRut.config(fg="red", justify="center")
-RutLabel = Label(Frame1, text="Rut Entrenador:")
+RutLabel = Label(Frame1, text="Rut Entrenador:", font=("Times New Romans", 10))
 RutLabel.grid(row=3, column=0, padx=10, pady=10)
 
 # Crear campo de entrada para el Teléfono
 CuadroTelefono = Entry(Frame1)
 CuadroTelefono.grid(row=3, column=3, padx=10, pady=10)
 CuadroTelefono.config(fg="red", justify="center")
-TelefonoLabel = Label(Frame1, text="Teléfono Entrenador:")
+TelefonoLabel = Label(Frame1, text="Teléfono Entrenador:", font=("Times New Romans", 10))
 TelefonoLabel.grid(row=3,column=2,padx=10,pady=10)
 
 
@@ -57,35 +57,34 @@ TelefonoLabel.grid(row=3,column=2,padx=10,pady=10)
 CuadroNombrePokemon = Entry(Frame1)
 CuadroNombrePokemon.grid(row=5, column=1, padx=10, pady=10)
 CuadroNombrePokemon.config(fg="red", justify="center")
-NombrePokemonLabel = Label(Frame1, text="Nombre del Pokémon:")
+NombrePokemonLabel = Label(Frame1, text="Nombre del Pokémon:", font=("Times New Romans", 10))
 NombrePokemonLabel.grid(row=5, column=0, padx=10, pady=10)
 
 # Crear campo de entrada para el tipo del Pokémon
-TipoPokemonLabel = Label(Frame1, text="Tipo del Pokémon:")
+TipoPokemonLabel = Label(Frame1, text="Tipo del Pokémon:", font=("Times New Romans", 10))
 TipoPokemonLabel.grid(row=6, column=0, padx=10, pady=10)
 
 # Crear campo de entrada para el segundo tipo del Pokémon
-SegundoTipoPokemonLabel = Label(Frame1, text="Segundo Tipo del Pokémon:")
+SegundoTipoPokemonLabel = Label(Frame1, text="Segundo Tipo del Pokémon:", font=("Times New Romans", 10))
 SegundoTipoPokemonLabel.grid(row=7, column=0, padx=10, pady=10)
 
 # Crear campo de entrada para la edad del Pokémon
 CuadroEdadPokemon = Entry(Frame1)
 CuadroEdadPokemon.grid(row=8, column=1, padx=10, pady=10)
 CuadroEdadPokemon.config(fg="red", justify="center")
-EdadPokemonLabel = Label(Frame1, text="Edad del Pokémon:")
+EdadPokemonLabel = Label(Frame1, text="Edad del Pokémon:", font=("Times New Romans", 10))
 EdadPokemonLabel.grid(row=8, column=0, padx=10, pady=10)
 
 # Crear campo de entrada para el tiempo de estadía del Pokémon
 CuadroTiempoEstadia = Entry(Frame1)
 CuadroTiempoEstadia.grid(row=9, column=1, padx=10, pady=10)
 CuadroTiempoEstadia.config(fg="red", justify="center")
-TiempoEstadiaLabel = Label(Frame1, text="Dias de Estadía del Pokémon:")
+TiempoEstadiaLabel = Label(Frame1, text="Dias de Estadía del Pokémon:", font=("Times New Romans", 10))
 TiempoEstadiaLabel.grid(row=9, column=0, padx=10, pady=10)
 
 
 
 #Funcion para que el boton "registrarse" ejecute la interfaz de actividades
-#mezcle ambas funciones ya que el boton no permite dos command
 def abrirPrograma():
     Nombre_entrenador=CuadroNombre.get()
     Apellido=CuadroApellido.get()
@@ -101,7 +100,7 @@ def abrirPrograma():
     print("Dias de Estadía del Pokémon:", tiempo_estadia)
     
     
-    subprocess.Popen(["python", "interfasActividades.py"]) 
+    subprocess.Popen(["python", "interfasActividades.py"])
 
 
 # Crear botón de guardar
