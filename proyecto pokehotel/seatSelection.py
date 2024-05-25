@@ -1,0 +1,53 @@
+import tkinter as tk
+from tkinter import messagebox
+
+class SeatSelection(tk.Tk):
+    def __init__(self):
+        super().__init__()
+
+        self.title("habitaciones")
+        self.geometry("600x500")
+
+        self.selected_seats = []
+
+        self.create_widgets()
+
+    def create_widgets(self):
+        label = tk.Label(self, text="habitaciones tomadas:")
+        label.grid(row=0, column=0, columnspan=5)
+
+        self.seat_buttons = []
+        seats = ['A1', 'A2', 'A3', 'A4', 'A5',
+                'B1', 'B2', 'B3', 'B4', 'B5',
+                'C1', 'C2', 'C3', 'C4', 'C5',
+                'D1', 'D2', 'D3', 'D4', 'D5',
+                'F1', 'F2', 'F3', 'F4', 'F5']
+
+        row = 1
+        col = 0
+        for i, seat in enumerate(seats):
+            button = tk.Button(self, text=seat, width=16, height=5, command=lambda i=i: self.on_seat_click(i))
+            button.grid(row=row, column=col)
+            self.seat_buttons.append(button)
+            col += 1
+            if col > 4:
+                col = 0
+                row += 1
+
+    def on_seat_click(self, index):
+        seat = self.seat_buttons[index]
+        if seat.cget('bg') == 'SystemButtonFace':
+            seat.config(bg='green')
+            self.selected_seats.append(seat.cget('text'))
+        else:
+            seat.config(bg='SystemButtonFace')
+            self.selected_seats.remove(seat.cget('text'))
+
+        if len(self.selected_seats) > 0:
+            messagebox.showinfo("Habitaciones_tomadas", ", ".join(self.selected_seats))
+        else:
+            messagebox.showinfo("Habitaciones_tomadas", "No hay habitaciones tomadas")
+
+if __name__ == "__main__":
+    app = SeatSelection()
+    app.mainloop()
