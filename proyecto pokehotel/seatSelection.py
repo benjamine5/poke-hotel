@@ -1,4 +1,5 @@
 import tkinter as tk
+import subprocess
 from tkinter import messagebox
 
 class SeatSelection(tk.Tk):
@@ -34,6 +35,10 @@ class SeatSelection(tk.Tk):
                 col = 0
                 row += 1
 
+        # Add the button to the same window
+        self.button = tk.Button(self, text="siguiente", command=self.on_button_click)
+        self.button.grid(row=row+1, column=0, columnspan=5)
+
     def on_seat_click(self, index):
         seat = self.seat_buttons[index]
         if seat.cget('bg') == 'SystemButtonFace':
@@ -47,6 +52,9 @@ class SeatSelection(tk.Tk):
             messagebox.showinfo("Habitaciones_tomadas", ", ".join(self.selected_seats))
         else:
             messagebox.showinfo("Habitaciones_tomadas", "No hay habitaciones tomadas")
+
+    def on_button_click(self):
+        subprocess.Popen(["python","registro.py"])
 
 if __name__ == "__main__":
     app = SeatSelection()
