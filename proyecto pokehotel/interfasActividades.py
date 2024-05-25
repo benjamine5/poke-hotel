@@ -1,4 +1,5 @@
 from tkinter import *
+import subprocess
 
 #Funcion recopiladora de datos de los checkbuttons :(
 def compra():
