@@ -9,7 +9,7 @@ class SeatSelection(tk.Tk):
         self.geometry("800x600")
         self.resizable(True, True)
         self.config(bd=25, relief="groove")
-        raiz.iconbitmap("pokemon.ico")
+        self.iconbitmap("pokemon.ico")
 
         self.selected_seats = []
 
