@@ -1,8 +1,9 @@
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import PhotoImage
-import stripe #hay que instalarlo
+import stripe  #instalar con "pip install stripe"
 import datetime
+import subprocess
 
 # Configuración de Stripe
 stripe.api_key = 'sk_test_tu_clave_secreta_de_stripe'
@@ -88,9 +89,10 @@ def process_payment():
 raiz = tk.Tk()
 
 raiz.geometry("800x600")
-raiz.title("Pago hotel")
+raiz.title("Pago Hotel")
 raiz.config(bd=25)
 raiz.config(relief="sunken")
+raiz.iconbitmap("pokemon.ico")
 
 # Cargar la imagen
 image = PhotoImage(file="pngegg.png")
@@ -129,5 +131,6 @@ eccv.place(x=430, y=280, anchor=tk.CENTER)
 
 bpago = tk.Button(raiz, text="Pagar", font=("Times New Roman", 25), command=process_payment)
 bpago.place(x=300, y=380, anchor=tk.CENTER)
-raiz.iconbitmap("hotel.ico")
+
+
 raiz.mainloop()
