@@ -1,7 +1,23 @@
 from tkinter import *
+from tkinter import messagebox
 import subprocess
 import json
 import datetime
+import re
+
+def validar_rut(rut):
+    """Valida el formato del RUT chileno."""
+    if not re.match(r"^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$", rut):
+        return False
+    return True
+
+def validar_telefono(telefono):
+    """Valida el formato del teléfono (8 dígitos)."""
+    return telefono.isdigit() and len(telefono) == 8
+
+def solo_numeros(P):
+    """Valida que la entrada contenga solo números"""
+    return P.isdigit() or P == ""
 
 def abrirPrograma():
     Nombre_entrenador = CuadroNombre.get()
@@ -13,6 +29,16 @@ def abrirPrograma():
     segundo_tipo_pokemon = valor2.get()
     edad_pokemon = CuadroEdadPokemon.get()
     tiempo_estadia = CuadroTiempoEstadia.get()
+    
+        # Validar RUT
+    if not validar_rut(Rut):
+        messagebox.showerror("Error", "RUT no válido. Debe tener el formato XX.XXX.XXX-X.")
+        return
+    
+    # Validar Teléfono
+    if not validar_telefono(Telefono):
+        messagebox.showerror("Error", "Teléfono no válido. Debe contener 8 dígitos.")
+        return
 
     # Guardar datos en un diccionario
     pokemon_data = {
@@ -115,4 +141,3 @@ botomRegister = Button(ventana, text="Registrar", command=abrirPrograma, fg="Bla
 botomRegister.place(x=300, y=400)
 
 ventana.mainloop()
-
