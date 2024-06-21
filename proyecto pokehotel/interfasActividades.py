@@ -17,14 +17,14 @@ def compra():
     
     print(totalActividades)
     
-    #almacenamos los datos en el json
+    
     Total = {
         "actividades" : totalActividades,
     }
     
     # Convertir diccionario a JSON y guardar en un archivo
     ValorTotal = json.dumps(Total, indent=4)
-    with open("pokemon_data.json", "w") as f:
+    with open("Actividades_data.json", "w") as f:
         f.write(ValorTotal)    
     
 
