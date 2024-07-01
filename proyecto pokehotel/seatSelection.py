@@ -18,7 +18,7 @@ class SeatSelection(tk.Tk):
     def create_widgets(self):
         Frame=tk.Frame(self)
         Frame.pack()
-        label = tk.Label(Frame, text="Habitaciones Tomadas:", font=("Times New Romans", 20))
+        label = tk.Label(Frame, text="Habitaciones:", font=("Times New Romans", 20))
         label.grid(row=0, column=0, columnspan=5)
 
         self.seat_buttons = []
@@ -38,30 +38,28 @@ class SeatSelection(tk.Tk):
             if col > 4:
                 col = 0
                 row += 1
-        
+
         # Add the button to the same window
         self.button = tk.Button(Frame, text="Siguiente", command=self.Registro, font=("Times New Romans", 21))
         self.button.grid(row=row+1, column=0, columnspan=5)
-        
+
     def Registro(self):
-        subprocess.Popen(["python","registro.py"])
+        if not self.selected_seats:
+            messagebox.showinfo("Error", "Debe seleccionar al menos una habitación.")
+        else:
+            subprocess.Popen(["python","registro.py"])
 
     def on_seat_click(self, index):
         seat = self.seat_buttons[index]
         if seat.cget('bg') == 'SystemButtonFace':
-            seat.config(bg='green')
-            self.selected_seats.append(seat.cget('text'))
+            if len(self.selected_seats) < 1:
+                seat.config(bg='green')
+                self.selected_seats.append(seat.cget('text'))
+            else:
+                messagebox.showinfo("Error", "No puede elegir más de 1 habitación.")
         else:
             seat.config(bg='SystemButtonFace')
             self.selected_seats.remove(seat.cget('text'))
-
-        if len(self.selected_seats) > 0:
-            messagebox.showinfo("Habitaciones_tomadas", ", ".join(self.selected_seats))
-        else:
-            messagebox.showinfo("Habitaciones_tomadas", "No hay habitaciones tomadas")
-
-    def on_button_click(self):
-        subprocess.Popen(["python","registro.py"])
 
 if __name__ == "__main__":
     app = SeatSelection()
