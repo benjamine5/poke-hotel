@@ -1,6 +1,7 @@
 import tkinter as tk
 import subprocess
 from tkinter import messagebox
+import json
 
 class SeatSelection(tk.Tk):
     def __init__(self):
@@ -9,9 +10,10 @@ class SeatSelection(tk.Tk):
         self.geometry("800x600")
         self.resizable(True, True)
         self.config(bd=25, relief="groove")
-        self.iconbitmap("pokemon.ico")
+        self.iconbitmap("pokemon/hotel.ico")
 
         self.selected_seats = []
+        self.room_info = {}
 
         self.create_widgets()
 
@@ -47,7 +49,8 @@ class SeatSelection(tk.Tk):
         if not self.selected_seats:
             messagebox.showinfo("Error", "Debe seleccionar al menos una habitación.")
         else:
-            subprocess.Popen(["python","registro.py"])
+            
+            subprocess.Popen(["python", "Registro.py"])
 
     def on_seat_click(self, index):
         seat = self.seat_buttons[index]
